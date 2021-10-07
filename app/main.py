@@ -26,12 +26,7 @@ def read_root():
 def add_me(number_1: int, number_2: int):
     sum = number_1 + number_2
     return {"sum": sum}
-
-# Todo - build out division fcn    
-@app.get("/divide/{num_1}/{num_2}")
-def quotient(num_1:int, num_2:int):
-    div = num_1 / num_2
-    return {"quotient": div}
+      
 
 # Introduce data types and defaults from the Optional library
 @app.get("/items/{item_id}")
