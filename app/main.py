@@ -26,7 +26,8 @@ def read_root():
 def add_me(number_1: int, number_2: int):
     sum = number_1 + number_2
     return {"sum": sum}
-    
+
+# Todo - build out division fcn    
 
 # Introduce data types and defaults from the Optional library
 @app.get("/items/{item_id}")
