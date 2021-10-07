@@ -28,6 +28,10 @@ def add_me(number_1: int, number_2: int):
     return {"sum": sum}
 
 # Todo - build out division fcn    
+@app.get("/divide/{num_1}/{num_2}")
+def quotient(num_1:int, num:2:int):
+    div = num_1 / num_2
+    return {"quotient": div}
 
 # Introduce data types and defaults from the Optional library
 @app.get("/items/{item_id}")
