@@ -26,6 +26,11 @@ def read_root():
 def add_me(number_1: int, number_2: int):
     sum = number_1 + number_2
     return {"sum": sum}
+
+@app.get("/divide/{num_1}/{num_2}")
+def divide_me(num_1:int, num_2:int):
+    quotient = num_1 / num_2
+    return {"quotient": quotient}
   
 
 # Introduce data types and defaults from the Optional library
