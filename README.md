@@ -13,7 +13,7 @@ python3 -m pip install pipenv
 pipenv shell
 
 # Install dependencies
-pipeinv install -r requirements.txt
+pipenv install -r requirements.txt
 ```
 
 ## Development
@@ -24,7 +24,7 @@ As typical with FastAPI development, run the local server as you code:
 cd app
 
 # run the local uvicorn server (install locally first)
-uvicorn main:app --reload
+
 ```
 
 Your dev site is now running locally at [http://localhost:8000/](http://localhost:8000/)
@@ -77,6 +77,6 @@ Look in `.build.yml` for a sample template that completes the following steps:
 
 1. Builds the container image.
 2. Pushes the new image to the container registry of your choice (i.e. Docker Hub, GHCR, etc.)
-3. Pushes an SQS message to Amazon triggering a re-deployment of the app in DCOS.
+3. (Optional) Publish a message for deployment in K8S, etc.
 
 To enable this pipeline, place it in `.github/workflows/` and git push. Some repository secrets must be set before builds will work.
