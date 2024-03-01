@@ -1,5 +1,15 @@
-FROM python:3.12-alpine
-COPY ./app /app
-COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
-CMD cd /app && uvicorn main:app --host 0.0.0.0 --port 80
+FROM unit:python3.12
+
+COPY ./config/config.json /docker-entrypoint.d/config.json
+
+RUN mkdir build
+
+COPY . ./build
+
+RUN apt update && apt install -y python3-pip                                  \
+    && pip3 install -r /build/requirements.txt                               \
+    && apt remove -y python3-pip                                              \
+    && apt autoremove --purge -y                                              \
+    && rm -rf /var/lib/apt/lists/* /etc/apt/sources.list.d/*.list
+
+EXPOSE 80
